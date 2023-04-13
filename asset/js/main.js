@@ -26,3 +26,51 @@ BONUS 3:
 Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 
 */
+
+
+// array immagini
+let images = [
+  './asset/img/01.webp',
+  './asset/img/02.webp',
+  './asset/img/03.webp',
+  './asset/img/04.webp',
+  './asset/img/05.webp',
+]
+
+// dichiaro variabili che puntano alle freccie
+// freccia sopra e sotto
+let prev = document.querySelector('.prev');
+let next = document.querySelector('.next');
+
+//dichiaro variabile per l'index
+let index = 0;
+
+let img = document.querySelector(".image");
+
+//incremento
+next.addEventListener('click', function(){
+
+  //uso l'indice array per l'attributo src
+  img.setAttribute('src', images[index]);
+  index++;
+
+  //setto l'indice a 0 quando finisce l'array
+  if (index >= images.length) {
+      index = 0;
+  }
+
+});
+
+//decremento
+prev.addEventListener('click', function(){
+
+  //uso l'indice array per l'attributo src
+  img.setAttribute('src', images[index]);
+  index--;
+
+  //setto l'indice a 0 quando finisce l'array
+  if (index < 0) {
+      index = images.length - 1;
+  }
+
+});
