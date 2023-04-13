@@ -193,6 +193,16 @@ let autoPlay = document.querySelector('.fa-power-off');
 //fermo il tempo associando ad una variabile un valore nullo
 let intervalId = null;
 
+let direction = 1; // 1 per incrementare l'indice, -1 per decrementarlo
+
+autoUP.addEventListener("click", function() {
+  direction = -1;
+});
+
+autoDown.addEventListener("click", function() {
+  direction = 1;
+});
+
 
 //incremento autoplay
 autoPlay.addEventListener('click', function(){
@@ -205,7 +215,9 @@ autoPlay.addEventListener('click', function(){
     // Avvia il cambiamento automatico delle immagini
     intervalId = setInterval(function() {
       // Incrementa l'indice dell'immagine corrente
-      index = (index + 1) % images.length;
+      //index = (index + 1) % images.length;
+      index = (index + direction + images.length) % images.length;
+
 
       // Aggiorna l'immagine principale del carosello
       img.setAttribute("src", images[index].image);
