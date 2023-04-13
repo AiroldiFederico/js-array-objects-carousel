@@ -108,9 +108,7 @@ let next = document.querySelector('.next');
 
 
 //dichiaro variabile per l'index
-let index = 0;
-
-
+let index = 1;
 
 
 // punto all'immagine in html
@@ -120,11 +118,16 @@ let img = document.querySelector(".image");
 // assegno le keys nell'array a una variabile
 let keys = Object.keys(images[index]);
 
-
+//inizializzo immagine testo e titolo
+img.setAttribute('src', images[0][keys[0]]);
+document.getElementById('titolo').innerHTML = `${images[0][keys[1]]}`
+document.getElementById('testo').innerHTML = `${images[0][keys[2]]}`
 
 
 //incremento
 next.addEventListener('click', function(){
+
+  
 
   //uso l'indice array ed argomento oggetto per l'attributo src
   img.setAttribute('src', images[index][keys[0]]);
@@ -151,6 +154,14 @@ prev.addEventListener('click', function(){
 
   //uso l'indice array per l'attributo src
   img.setAttribute('src', images[index][keys[0]]);
+
+  //uso l'indice array ed argomento oggetto per il titolo dell'immagine
+  document.getElementById('titolo').innerHTML = `${images[index][keys[1]]}`
+
+  //uso l'indice array ed argomento oggetto per il titolo dell'immagine
+  document.getElementById('testo').innerHTML = `${images[index][keys[2]]}`
+
+  //decremento indice
   index--;
 
   //setto l'indice a 0 quando finisce l'array
