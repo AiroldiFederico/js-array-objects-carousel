@@ -39,6 +39,7 @@ h1 , h2, h4, div{
 .items {
    width: 50rem;
    height: 30rem;
+   position: relative;
   
 }
 
@@ -71,4 +72,11 @@ h1 , h2, h4, div{
     transform: scale(1.1);
     transition: all 0.5s ease;
     z-index: 2;
+}
+
+
+.text {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
 }
