@@ -79,4 +79,6 @@ h1 , h2, h4, div{
     position: absolute;
     bottom: 1rem;
     left: 1rem;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 2px 1px 1px rgb(0, 0, 0);
+    color: #ffffff;
 }

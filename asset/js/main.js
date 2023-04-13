@@ -126,8 +126,16 @@ let keys = Object.keys(images[index]);
 //incremento
 next.addEventListener('click', function(){
 
-  //uso l'indice array per l'attributo src
+  //uso l'indice array ed argomento oggetto per l'attributo src
   img.setAttribute('src', images[index][keys[0]]);
+
+  //uso l'indice array ed argomento oggetto per il titolo dell'immagine
+  document.getElementById('titolo').innerHTML = `${images[index][keys[1]]}`
+
+  //uso l'indice array ed argomento oggetto per il titolo dell'immagine
+  document.getElementById('testo').innerHTML = `${images[index][keys[2]]}`
+
+  //incremento indice
   index++;
 
   //setto l'indice a 0 quando finisce l'array
