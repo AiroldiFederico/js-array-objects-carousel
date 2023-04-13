@@ -198,3 +198,25 @@ prev.addEventListener('click', function(){
 });
 
 console.log(index);
+
+
+// al click della thumbnail cambia l'immagine il titolo e il testo
+
+let thumbnails = document.querySelectorAll(".thumb");
+
+thumbnails.forEach(function(element, index) {
+  element.addEventListener("click", function() {
+    // Aggiorna l'immagine principale del carosello
+    // let img = document.querySelector("#myImage");
+    img.setAttribute("src", images[index][keys[0]]);
+
+    //uso l'indice array ed argomento oggetto per il titolo dell'immagine
+    document.getElementById('titolo').innerHTML = `${images[index][keys[1]]}`
+
+    //uso l'indice array ed argomento oggetto per il titolo dell'immagine
+    document.getElementById('testo').innerHTML = `${images[index][keys[2]]}`
+
+    // Aggiorna le classi delle immagini thumbnail
+    updateThumbnail(index);
+  });
+});
