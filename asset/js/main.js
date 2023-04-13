@@ -124,10 +124,27 @@ document.getElementById('titolo').innerHTML = `${images[0][keys[1]]}`
 document.getElementById('testo').innerHTML = `${images[0][keys[2]]}`
 
 
+
+// let actualImgThumb = document.getElementById(`1`);
+// actualImgThumb.classList.add('actual');
+// let prevIndex = index - 1;
+// let actualImgThumb = document.getElementById(`${index}`);
+// let prevImgThumb = document.getElementById(`${prevIndex}`);
+//actualImgThumb.classList.add('actual');
+//prevImgThumb.classList.remove('actual');
+//console.log(actualImgThumb);
+// console.log(index);
+// console.log(prevIndex);
+
+
+
 //incremento
 next.addEventListener('click', function(){
 
-  
+
+  // document.getElementById(`${index + 1}`).classList.add('actual');
+  // document.getElementById(`${index - 1}`).classList.remove('actual');
+
 
   //uso l'indice array ed argomento oggetto per l'attributo src
   img.setAttribute('src', images[index][keys[0]]);
@@ -138,8 +155,11 @@ next.addEventListener('click', function(){
   //uso l'indice array ed argomento oggetto per il titolo dell'immagine
   document.getElementById('testo').innerHTML = `${images[index][keys[2]]}`
 
+  
   //incremento indice
   index++;
+
+
 
   //setto l'indice a 0 quando finisce l'array
   if (index >= images.length) {
@@ -170,3 +190,5 @@ prev.addEventListener('click', function(){
   }
 
 });
+
+
