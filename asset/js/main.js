@@ -28,49 +28,6 @@ Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 */
 
 
-// array immagini
-// let imagesold = [
-//   './asset/img/01.webp',
-//   './asset/img/02.webp',
-//   './asset/img/03.webp',
-//   './asset/img/04.webp',
-//   './asset/img/05.webp',
-// ]
-
-
-
-
-
-//incremento
-// next.addEventListener('click', function(){
-
-//   //uso l'indice array per l'attributo src
-//   img.setAttribute('src', imagesold[index]);
-//   index++;
-
-//   //setto l'indice a 0 quando finisce l'array
-//   if (index >= imagesold.length) {
-//       index = 0;
-//   }
-
-// });
-
-//decremento
-// prev.addEventListener('click', function(){
-
-//   //uso l'indice array per l'attributo src
-//   img.setAttribute('src', imagesold[index]);
-//   index--;
-
-//   //setto l'indice a 0 quando finisce l'array
-//   if (index < 0) {
-//       index = imagesold.length - 1;
-//   }
-
-// });
-
-
-
 /* NUOVA LOGICA ----------------------------------------------*/
 
 
@@ -203,13 +160,16 @@ console.log(index);
 // al click della thumbnail cambia l'immagine il titolo e il testo
 
 let thumbnails = document.querySelectorAll(".thumb");
+console.log(thumbnails);
 
 thumbnails.forEach(function(element, index) {
-  element.addEventListener("click", function() {
-    // Aggiorna l'immagine principale del carosello
-    // let img = document.querySelector("#myImage");
-    img.setAttribute("src", images[index][keys[0]]);
 
+  console.log(element);
+  element.addEventListener("click", function() {
+
+    // Aggiorna l'immagine principale del carosello
+    img.setAttribute("src", images[index][keys[0]]);
+    
     //uso l'indice array ed argomento oggetto per il titolo dell'immagine
     document.getElementById('titolo').innerHTML = `${images[index][keys[1]]}`
 
