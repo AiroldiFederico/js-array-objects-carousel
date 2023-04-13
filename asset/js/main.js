@@ -108,7 +108,7 @@ let next = document.querySelector('.next');
 
 
 //dichiaro variabile per l'index
-let index = 1;
+let index = 0;
 
 
 // punto all'immagine in html
@@ -122,29 +122,37 @@ let keys = Object.keys(images[index]);
 img.setAttribute('src', images[0][keys[0]]);
 document.getElementById('titolo').innerHTML = `${images[0][keys[1]]}`
 document.getElementById('testo').innerHTML = `${images[0][keys[2]]}`
+updateThumbnail(index);
 
 
 
-// let actualImgThumb = document.getElementById(`1`);
-// actualImgThumb.classList.add('actual');
-// let prevIndex = index - 1;
-// let actualImgThumb = document.getElementById(`${index}`);
-// let prevImgThumb = document.getElementById(`${prevIndex}`);
-//actualImgThumb.classList.add('actual');
-//prevImgThumb.classList.remove('actual');
-//console.log(actualImgThumb);
-// console.log(index);
-// console.log(prevIndex);
+function updateThumbnail(index) {
+  // Rimuovi la classe "actual" da tutte le immagini thumbnail
+  let thumbnails = document.querySelectorAll(".thumb");
+  thumbnails.forEach(function(thumbnail) {
+    thumbnail.classList.remove("actual");
+  });
+ 
+  document.getElementById(`${index}`).classList.add('actual');
+}
+
 
 
 
 //incremento
 next.addEventListener('click', function(){
+  
+  
+  //incremento indice
+  index++;
+  
+  //setto l'indice a 0 quando finisce l'array
+  if (index >= images.length) {
+    index = 0;
+  }
 
-
-  // document.getElementById(`${index + 1}`).classList.add('actual');
-  // document.getElementById(`${index - 1}`).classList.remove('actual');
-
+  //immagine thumbnail attuale
+  updateThumbnail(index);
 
   //uso l'indice array ed argomento oggetto per l'attributo src
   img.setAttribute('src', images[index][keys[0]]);
@@ -155,22 +163,25 @@ next.addEventListener('click', function(){
   //uso l'indice array ed argomento oggetto per il titolo dell'immagine
   document.getElementById('testo').innerHTML = `${images[index][keys[2]]}`
 
-  
-  //incremento indice
-  index++;
-
-
-
-  //setto l'indice a 0 quando finisce l'array
-  if (index >= images.length) {
-      index = 0;
-  }
+  console.log(index);
 
 });
 
 
 //decremento
 prev.addEventListener('click', function(){
+
+  
+  //decremento indice
+  index--;
+  
+  //setto l'indice a 4 quando finisce l'array
+  if (index < 0) {
+    index = images.length - 1;
+  }
+  
+  //immagine thumbnail attuale
+  updateThumbnail(index);
 
   //uso l'indice array per l'attributo src
   img.setAttribute('src', images[index][keys[0]]);
@@ -181,14 +192,9 @@ prev.addEventListener('click', function(){
   //uso l'indice array ed argomento oggetto per il titolo dell'immagine
   document.getElementById('testo').innerHTML = `${images[index][keys[2]]}`
 
-  //decremento indice
-  index--;
 
-  //setto l'indice a 0 quando finisce l'array
-  if (index < 0) {
-      index = images.length - 1;
-  }
+  console.log(index);
 
 });
 
-
+console.log(index);
