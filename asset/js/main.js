@@ -183,13 +183,36 @@ thumbnails.forEach(function(element, index) {
 
 
 
-setInterval(function() {
-  // Incrementa l'indice dell'immagine corrente
-  index = (index + 1) % images.length;
 
-  // Aggiorna l'immagine principale del carosello
-  img.setAttribute("src", images[index].image);
 
-  // Aggiorna le classi delle immagini thumbnail
-  updateThumbnail(index);
-}, 3000);
+//associo gli elementi autoplay alle variabili
+let autoUP = document.querySelector('.fa-caret-up');
+let autoDown = document.querySelector('.fa-caret-down');
+let autoPlay = document.querySelector('.fa-power-off');
+
+//fermo il tempo associando ad una variabile un valore nullo
+let intervalId = null;
+
+
+//incremento autoplay
+autoPlay.addEventListener('click', function(){
+
+  if (intervalId) {
+    // Ferma il cambiamento automatico delle immagini
+    clearInterval(intervalId);
+    intervalId = null;
+  } else {
+    // Avvia il cambiamento automatico delle immagini
+    intervalId = setInterval(function() {
+      // Incrementa l'indice dell'immagine corrente
+      index = (index + 1) % images.length;
+
+      // Aggiorna l'immagine principale del carosello
+      img.setAttribute("src", images[index].image);
+
+      // Aggiorna le classi delle immagini thumbnail
+      updateThumbnail(index);
+    }, 3000);
+  }
+
+});

@@ -84,3 +84,18 @@ h1 , h2, h4, div{
 .actual {
     filter: brightness(1);
 }
+
+#autoplay {
+    font-size: 3rem;
+}
+
+#autoplay:hover {
+    color: var(--color-1) !important;
+}
+#autoplay:active {
+    color: var(--color-3) !important;
+}
+
+.w-per {
+    width: 100px;
+} 
