@@ -99,7 +99,7 @@ function updateThumbnail(index) {
 //incremento
 next.addEventListener('click', function(){
   
-  
+
   //incremento indice
   index++;
   
@@ -180,3 +180,16 @@ thumbnails.forEach(function(element, index) {
     updateThumbnail(index);
   });
 });
+
+
+
+setInterval(function() {
+  // Incrementa l'indice dell'immagine corrente
+  index = (index + 1) % images.length;
+
+  // Aggiorna l'immagine principale del carosello
+  img.setAttribute("src", images[index].image);
+
+  // Aggiorna le classi delle immagini thumbnail
+  updateThumbnail(index);
+}, 3000);
